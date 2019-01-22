@@ -1,0 +1,56 @@
+<resources>
+    <string name="app_name">NKS HO</string>
+    <string name="user_email">Email</string>
+    <string name="user_password">Password</string>
+    <string name="title_login">Login</string>
+    <string name="google_maps_key">AIzaSyBMA30UXts64nWtjWfjbLFuOy9qR2gqGGY</string>
+    <string name="material_calendar_monday">Mon</string>
+    <string name="material_calendar_tuesday">Tue</string>
+    <string name="material_calendar_wednesday">Wed</string>
+    <string name="material_calendar_thursday">Thu</string>
+    <string name="material_calendar_friday">Fri</string>
+    <string name="material_calendar_saturday">Sat</string>
+    <string name="material_calendar_sunday">Sun</string>
+
+    <array name="material_calendar_months_array">
+        <item>January</item>
+        <item>February</item>
+        <item>March</item>
+        <item>April</item>
+        <item>May</item>
+        <item>June</item>
+        <item>July</item>
+        <item>August</item>
+        <item>September</item>
+        <item>October</item>
+        <item>November</item>
+        <item>December</item>
+    </array>
+
+    <string-array name="spinner_type_day">
+        <item>Bệnh</item>
+        <item>Nhà có việc bận</item>
+        <item>Hỏng xe</item>
+        <item>Không có trong danh sách</item>
+    </string-array>
+
+    <string-array name="spinner_days_leave">
+        <item>2 ngày</item>
+        <item>3 ngày</item>
+        <item>4 ngày</item>
+        <item>Số lượng khác</item>
+    </string-array>
+    <string name="btn_forgot_password">Forgot your password?</string>
+    <string name="material_calendar_today_button">Today</string>
+    <string name="material_calendar_positive_button">OK</string>
+    <string name="material_calendar_negative_button">Cancel</string>
+    <string name="open_location_settings">Open</string>
+    <string name="cancel">Cancel</string>
+    <string name="hint_email">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="action_sign_in_short">Register</string>
+    <string name="btn_link_to_login">Already registered. Login Me!</string>
+    <string name="btn_link_to_register">Don"'"t have an account ?</string>
+    <string name="txt_message">Tin nhắn</string>
+    <string name="txt_activate">Đang hoạt động</string>
+</resources>

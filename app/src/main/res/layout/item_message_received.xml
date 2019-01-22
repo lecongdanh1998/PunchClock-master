@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/text_message_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:gravity="center"
+        android:text="11:40"
+        android:textSize="10sp" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayoutAvatar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="8dp"
+        android:paddingBottom="2dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/image_message_profile"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@mipmap/ic_launcher" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/text_message_time"
+        android:layout_toRightOf="@+id/relativeLayoutAvatar"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_message_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="John Doe"
+            android:textSize="12sp"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/text_message_body"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:autoLink="all"
+            android:background="@drawable/rounded_rectangle_orange"
+            android:maxWidth="240dp"
+            android:paddingLeft="16dp"
+            android:paddingTop="8dp"
+            android:paddingRight="16dp"
+            android:paddingBottom="8dp"
+            android:text="hi man, how are you?"
+            android:textColor="#000000"
+            android:textColorLink="#000000"
+            android:textSize="16sp" />
+
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/imageLeft"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="left"
+            android:layout_marginBottom="2dp"
+            android:adjustViewBounds="true"
+            android:gravity="left"
+            android:scaleType="fitCenter"
+            android:src="@mipmap/ic_launcher"
+            android:textColor="#ffffff"
+            app:riv_border_color="@android:color/transparent"
+            app:riv_corner_radius="10dp" />
+
+        <LinearLayout
+            android:id="@+id/linearLayoutVideo"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_gravity="left"
+            android:layout_marginBottom="2dp"
+            android:background="@drawable/shape_video"
+            android:gravity="left"
+            android:padding="5dp">
+
+            <VideoView
+                android:id="@+id/VideoLeft"
+                android:layout_width="250dp"
+                android:layout_height="200dp"
+                android:scaleType="fitCenter"
+                android:src="@mipmap/ic_launcher"
+                android:textColor="#ffffff" />
+        </LinearLayout>
+        >
+    </RelativeLayout>
+</RelativeLayout>

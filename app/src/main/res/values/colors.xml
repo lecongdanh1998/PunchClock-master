@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#0077bb</color>
+    <color name="colorPrimaryDark">#0077bb</color>
+    <color name="colorAccent">#0077bb</color>
+
+    <!--color blue-->
+
+    <color name="colorGrayWhite">#87e5da</color>
+    <!--color red-->
+    <color name="colorRed">#e60000</color>
+    <color name="colorGreen">#00b33c</color>
+    <color name="colorYellow">#f4e400</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorWhite">#ffffff</color>
+
+    <color name="summer">#44eebd82</color>
+    <color name="fall">#44d8d27e</color>
+    <color name="winter">#44a1c1da</color>
+    <color name="spring">#448da64b</color>
+
+    <color name="colorGray">#c9c9c9</color>
+    <color name="coloGray">#d2d2d2</color>
+    <color name="black">#000000</color>
+    <color name="white">#ffffff</color>
+
+    <color name="colorTextBlue">#0077bb</color>
+    <color name="color_background">#cccccc</color>
+    <color name="colorTextBlack">#000000</color>
+</resources>
