@@ -3,7 +3,12 @@ package com.example.namtn.punchclock.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.os.Bundle;
+import android.util.Base64;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -21,8 +26,12 @@ import com.example.namtn.punchclock.Presenter.MainPresenter.MainPresenterImpl;
 import com.example.namtn.punchclock.R;
 import com.example.namtn.punchclock.View.MainView;
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 public class MainActivity extends BaseActivity implements MainView, View.OnClickListener {
 
+    private static final String TAG = "MAIN_ACTIVITY";
     //    private GridView mGridViewMain;
     private MainPresenter mMainPresenter;
     //    private TextView mTextViewHour, mTextViewMinute, mTextViewSecond, mTextViewDate,
@@ -37,8 +46,7 @@ public class MainActivity extends BaseActivity implements MainView, View.OnClick
     TextView mTextViewDateMain, mTextViewTimeWorkingMain;
     //hotline main
     TextView mTextViewHotlineMain, mTextViewNumberHotlineMain;
-    private ImageView mImageViewPersonMain,menu_messenger_main;
-
+    private ImageView mImageViewPersonMain, menu_messenger_main;
 
 
     @Override
@@ -94,6 +102,24 @@ public class MainActivity extends BaseActivity implements MainView, View.OnClick
         mMainPresenter = new MainPresenterImpl(this, new MainModelImpl(this), new
                 AttendanceModelImpl(this));
 //        mMainPresenter.menuConfig();
+        PackageInfo info;
+        try {
+            info = getPackageManager().getPackageInfo("com.example.namtn.punchclock", PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md;
+                md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                String something = new String(Base64.encode(md.digest(), 0));
+                //String something = new String(Base64.encodeBytes(md.digest()));
+                Log.d(TAG, something);
+            }
+        } catch (PackageManager.NameNotFoundException e1) {
+            Log.d(TAG, e1.toString());
+        } catch (NoSuchAlgorithmException e) {
+            Log.d(TAG, e.toString());
+        } catch (Exception e) {
+            Log.d(TAG, e.toString());
+        }
     }
 
     @Override
@@ -221,7 +247,7 @@ public class MainActivity extends BaseActivity implements MainView, View.OnClick
                 IntentActivity(ProfileActivity.class);
                 break;
             case R.id.menu_messenger_main:
-                Intent intent = new Intent(this,TabChatActivity.class);
+                Intent intent = new Intent(this, TabChatActivity.class);
                 startActivity(intent);
                 break;
         }

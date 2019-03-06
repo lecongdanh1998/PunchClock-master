@@ -68,5 +68,7 @@ dependencies {
     implementation 'com.google.firebase:firebase-dynamic-links:16.1.5'
     implementation 'com.makeramen:roundedimageview:2.2.1'
     implementation 'com.facebook.shimmer:shimmer:0.3.0'
+    implementation 'com.facebook.android:facebook-login:[4,5)'
+
 }
 apply plugin: 'com.google.gms.google-services'

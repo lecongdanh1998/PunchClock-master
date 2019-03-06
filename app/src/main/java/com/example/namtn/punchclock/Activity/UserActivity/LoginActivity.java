@@ -1,8 +1,11 @@
 package com.example.namtn.punchclock.Activity.UserActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -17,22 +20,43 @@ import com.example.namtn.punchclock.Presenter.UserPresenter.LoginPresenter.Login
 import com.example.namtn.punchclock.Presenter.UserPresenter.LoginPresenter.LoginPresenterImpl;
 import com.example.namtn.punchclock.R;
 import com.example.namtn.punchclock.View.LoginView;
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.GraphRequest;
+import com.facebook.GraphResponse;
+import com.facebook.login.Login;
+import com.facebook.login.LoginResult;
+import com.facebook.login.widget.LoginButton;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.Arrays;
 
 public class LoginActivity extends BaseActivity implements LoginView, View.OnClickListener {
 
     private EditText mUserEmail, mUserPassword;
-    private Button mButtonLogin,mButtonSignUp;
+    private Button mButtonLogin, mButtonSignUp;
     private String strUser, strPass;
     private LoginPresenter mPresenterLogin;
     private ProgressBar mProgressBarLogin;
     private String TAG = "LOGIN_MAIN";
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
+    private LoginButton mLoginButton;
+    private CallbackManager callbackManager;
     String email = "";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(TAG, "initView: create UI" );
+        Log.d(TAG, "initView: create UI");
     }
 
     @Override
@@ -60,12 +84,48 @@ public class LoginActivity extends BaseActivity implements LoginView, View.OnCli
     protected void initData() {
         mPresenterLogin = new LoginPresenterImpl(this, new LoginModelImpl(this));
         preferences = getSharedPreferences("user_data", Context.MODE_PRIVATE);
-        email = preferences.getString("email","");
-        if(!email.toString().equals("")){
+        email = preferences.getString("email", "");
+        if (!email.toString().equals("")) {
             mUserEmail.setText(email);
-        }else {
+        } else {
             mUserEmail.setText("");
         }
+        callbackManager = CallbackManager.Factory.create();
+        mLoginButton = findViewById(R.id.login_facebook_button);
+        mLoginButton.setReadPermissions("public_profile", "email", "user_friends");
+        // Callback registration
+        mLoginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
+            @Override
+            public void onSuccess(LoginResult loginResult) {
+                // App code
+                GraphRequest mGraphRequest = GraphRequest.newMeRequest(loginResult.getAccessToken(), new GraphRequest.GraphJSONObjectCallback() {
+                    @Override
+                    public void onCompleted(JSONObject object, GraphResponse response) {
+                        try {
+                            Log.d(TAG, "onCompleted: " + object.getString("email"));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                });
+                Bundle parameters = new Bundle();
+                parameters.putString("fields", "id, name, email");
+                mGraphRequest.setParameters(parameters);
+                mGraphRequest.executeAsync();
+                Log.d(TAG, "onSuccess: " + loginResult.getAccessToken());
+            }
+
+            @Override
+            public void onCancel() {
+                // App code
+            }
+
+            @Override
+            public void onError(FacebookException exception) {
+                // App code
+                Log.d(TAG, "onError: " + exception);
+            }
+        });
     }
 
     @Override
@@ -127,13 +187,13 @@ public class LoginActivity extends BaseActivity implements LoginView, View.OnCli
 //        mPresenterLogin.IntentClass(SignUpActivity.class);
     }
 
-    private void loginUser(){
+    private void loginUser() {
         strUser = mUserEmail.getText().toString().trim();
-        strPass= mUserPassword.getText().toString().trim();
+        strPass = mUserPassword.getText().toString().trim();
         mPresenterLogin.loginUser(strUser, strPass);
     }
 
-    private void SignUp(){
+    private void SignUp() {
         mPresenterLogin.signUpUser();
     }
 
@@ -156,5 +216,11 @@ public class LoginActivity extends BaseActivity implements LoginView, View.OnCli
     @Override
     protected void onRestart() {
         super.onRestart();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        callbackManager.onActivityResult(requestCode, resultCode, data);
+        super.onActivityResult(requestCode, resultCode, data);
     }
 }

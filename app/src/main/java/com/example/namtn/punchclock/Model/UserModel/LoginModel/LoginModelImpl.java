@@ -36,6 +36,7 @@ public class LoginModelImpl implements LoginModel {
     String token = "";
     String email = "";
     private FirebaseAuth auth;
+
     public LoginModelImpl(Context context) {
         this.context = context;
         this.activity = (Activity) context;
@@ -71,10 +72,10 @@ public class LoginModelImpl implements LoginModel {
         if (errorCode == 0) {
             compositeDisposable.add(retrofit.userLogin(email, password, grant_type, client_id,
                     client_secret)
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .subscribe(
-                            s -> {
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribe(
+                                    s -> {
                                 auth.signInWithEmailAndPassword(email, "123456")
                                         .addOnCompleteListener(activity, new OnCompleteListener<AuthResult>() {
                                             @Override
@@ -96,13 +97,13 @@ public class LoginModelImpl implements LoginModel {
                                                 }
                                             }
                                         });
-                            },
-                            throwable -> {
-                                listener.setLoginFailure("Vui lòng kiểm tra email hoặc password");
-                                listener.hideProgressDialog();
-                                Log.d(TAG, "loginUser: " + throwable.getMessage());
-                            }
-                    )
+                                    },
+                                    throwable -> {
+                                        listener.setLoginFailure("Vui lòng kiểm tra email hoặc password");
+                                        listener.hideProgressDialog();
+                                        Log.d(TAG, "loginUser: " + throwable.getMessage());
+                                    }
+                            )
             );
         }
     }
