@@ -7,6 +7,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.namtn.punchclock.Activity.BaseActivity;
+import com.example.namtn.punchclock.Activity.Conversation.ConversationActivity;
 import com.example.namtn.punchclock.Activity.Dairy.CreateNewDairyActivity;
 import com.example.namtn.punchclock.Activity.Leaves.LeavesActivity;
 import com.example.namtn.punchclock.Activity.Notification.NotificaionActivity;
@@ -15,7 +16,7 @@ import com.example.namtn.punchclock.R;
 public class ProfileActivity extends BaseActivity implements View.OnClickListener {
 
     TextView mTextViewUserNameProfile, mTextViewLeavesProfile, mTextViewHelpProfile,
-            mTextViewNotification;
+            mTextViewNotification, mTextViewNewFeed;
     ImageView mImageAvatarProfile, mImageCancelProfile;
 
     @Override
@@ -35,6 +36,7 @@ public class ProfileActivity extends BaseActivity implements View.OnClickListene
         mImageCancelProfile = findViewById(R.id.image_cancel_profile);
         mTextViewHelpProfile = findViewById(R.id.txt_help_profile);
         mTextViewNotification = findViewById(R.id.txt_notification_profile);
+        mTextViewNewFeed = findViewById(R.id.txt_new_feed_profile);
     }
 
     @Override
@@ -43,6 +45,7 @@ public class ProfileActivity extends BaseActivity implements View.OnClickListene
         mImageCancelProfile.setOnClickListener(this);
         mTextViewHelpProfile.setOnClickListener(this);
         mTextViewNotification.setOnClickListener(this);
+        mTextViewNewFeed.setOnClickListener(this);
     }
 
     @Override
@@ -64,6 +67,9 @@ public class ProfileActivity extends BaseActivity implements View.OnClickListene
                 break;
             case R.id.txt_notification_profile:
                 IntentActivity(NotificaionActivity.class);
+                break;
+            case R.id.txt_new_feed_profile:
+                IntentActivity(ConversationActivity.class);
                 break;
         }
     }

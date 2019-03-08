@@ -61,6 +61,7 @@
                         android:paddingLeft="16dp"
                         android:paddingTop="12dp"
                         android:paddingBottom="12dp"
+                        android:text="123456"
                         android:textColor="@color/colorBlack"
                         android:textSize="@dimen/textMedium" />
 

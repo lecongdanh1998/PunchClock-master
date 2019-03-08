@@ -27,4 +27,11 @@
     <color name="colorTextBlue">#0077bb</color>
     <color name="color_background">#cccccc</color>
     <color name="colorTextBlack">#000000</color>
+
+    <color name="colorError">#dc3545</color>
+    <color name="colorSuccess">#28a745</color>
+    <color name="colorWarning">#ffc107</color>
+    <color name="colorPrimaryA">#007bff</color>
+    <color name="colorInfo">#17a2b8</color>
+    <color name="colorNks">#0077bb</color>
 </resources>

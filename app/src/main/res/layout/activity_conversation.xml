@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.Conversation.ConversationActivity">
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/tab_layout_main"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorWhite"
+        android:elevation="2dp"
+        app:tabTextColor="@color/colorPrimary"></android.support.design.widget.TabLayout>
+
+    <com.example.namtn.punchclock.component.CustomViewPager
+        android:id="@+id/view_pager_layout_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/tab_layout_main"
+        android:background="@color/colorWhite"></com.example.namtn.punchclock.component.CustomViewPager>
+</LinearLayout>

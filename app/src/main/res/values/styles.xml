@@ -16,4 +16,10 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/colorBlack</item>
     </style>
+
+    <style name="TextMedium">
+        <item name="android:textColor">@color/black</item>
+        <item name="android:fontFamily">@font/roboto_medium</item>
+        <item name="android:textSize">@dimen/textMedium</item>
+    </style>
 </resources>

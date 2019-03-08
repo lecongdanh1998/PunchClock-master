@@ -112,7 +112,7 @@
                             android:layout_centerInParent="true"
                             android:fontFamily="@font/roboto_bold"
                             android:padding="@dimen/padding_16dp"
-                            android:text="Check in"
+                            android:text="Check in "
                             android:textAllCaps="true"
                             android:textColor="@color/white" />
                     </RelativeLayout>

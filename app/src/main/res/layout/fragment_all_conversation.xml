@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fillViewport="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    tools:context=".fragment.AllConversationFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:padding="@dimen/margin_16dp"
+            android:focusableInTouchMode="true"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_avatar_fragment_conversation"
+                android:layout_width="@dimen/dimen_40dp"
+                android:layout_height="@dimen/dimen_40dp"
+                android:src="@color/black" />
+
+            <EditText
+                android:id="@+id/edt_contents_fragment_conversation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/padding_16dp"
+                android:layout_marginRight="@dimen/padding_16dp"
+                android:layout_toLeftOf="@+id/img_post_fragment_conversation"
+                android:layout_toRightOf="@id/img_avatar_fragment_conversation"
+                android:background="@drawable/custom_edittext_add_post_login"
+                android:hint="Ban dang nghi gi"
+                android:paddingBottom="@dimen/margin_8dp"
+                android:paddingTop="@dimen/margin_8dp"
+                android:paddingLeft="@dimen/padding_32dp"/>
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/img_post_fragment_conversation"
+                android:layout_width="@dimen/dimen_40dp"
+                android:layout_height="@dimen/dimen_40dp"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_photo_size_select_actual_grey_400_24dp" />
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/lv_all_conversation"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/margin_8dp"
+            android:dividerHeight="@dimen/margin_8dp"></ListView>
+    </LinearLayout>
+</ScrollView>

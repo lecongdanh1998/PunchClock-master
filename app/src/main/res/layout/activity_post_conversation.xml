@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.PostConversationActivity">
+
+    <include layout="@layout/custom_toolbar_post" />
+
+    <LinearLayout
+        android:padding="@dimen/margin_16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="@dimen/dimen_50dp"
+            android:layout_height="@dimen/dimen_50dp"
+            android:src="@color/black" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/margin_16dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="Neon"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textLarge" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/edt_contents_post_conversation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:fontFamily="@font/roboto_medium"
+        android:gravity="top"
+        android:hint="Ban dang nghi gi ?"
+        android:padding="@dimen/margin_16dp"
+        android:textColor="@color/black" />
+</LinearLayout>

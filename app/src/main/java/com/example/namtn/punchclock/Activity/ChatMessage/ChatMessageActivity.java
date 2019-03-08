@@ -81,7 +81,9 @@ public class ChatMessageActivity extends BaseActivity implements PresenterRepons
                 keyboardHeight = screenHeight - (rect.bottom - rect.top);
                 if (keyboardHeight > screenHeight / 3) {
                     if (notify == false) {
-                        reyclerview_message_list.smoothScrollToPosition(size - 1);
+                        if (size > 0){
+                            reyclerview_message_list.smoothScrollToPosition(size - 1);
+                        }
                         notify = true;
                     }
 
